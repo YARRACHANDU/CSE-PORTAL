@@ -217,7 +217,7 @@ export default function Home() {
                   <Award className="w-4 h-4 text-white" />
                 </div>
                 <h4 className="text-lg font-semibold text-gray-900">
-                  College Events Portal
+                  CSE Events Portal
                 </h4>
               </div>
               <p className="text-gray-600 text-sm leading-relaxed">

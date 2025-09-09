@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const predefinedPassword = "admin1234";
+const predefinedPassword = "CSE@nriit.edu.in";
 
 router.post("/login", (req, res) => {
   const { password } = req.body;
