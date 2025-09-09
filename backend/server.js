@@ -16,10 +16,7 @@ app.use("/api/events", eventRoutes);
 app.use("/api/admin", adminRoutes);
 
 mongoose
-  .connect(process.env.mongourl, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.mongourl)
   .then(() => {
     console.log("MongoDB connected");
     app.listen(port, () => console.log("Server running on port 4000"));
