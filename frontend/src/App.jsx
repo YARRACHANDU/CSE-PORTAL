@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route, Link, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import EventDetail from "./pages/EventDetail";
 import AdminLogin from "./pages/AdminLogin";
@@ -10,17 +10,12 @@ function App() {
 
   return (
     <div>
-      <nav>
-        <Link to="/">Home</Link>
-        {isAuthenticated ? (
-          <Link to="/admin">Dashboard</Link>
-        ) : (
-          <Link to="/admin/login">Admin Login</Link>
-        )}
-      </nav>
       <Routes>
         <Route path="/" element={<Home />} />
+
+        {/* Nested routes under EventDetail */}
         <Route path="/events/:id/*" element={<EventDetail />} />
+
         <Route
           path="/admin/login"
           element={
