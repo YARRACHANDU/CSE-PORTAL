@@ -2,9 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
+const dotenv = require("dotenv");
 const eventRoutes = require("./routes/eventRoutes");
 const adminRoutes = require("./routes/adminRoutes");
+dotenv.config();
 
+const port = process.env.PORT || 4000;
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -13,12 +16,12 @@ app.use("/api/events", eventRoutes);
 app.use("/api/admin", adminRoutes);
 
 mongoose
-  .connect("mongodb://localhost:27017/cse-events", {
+  .connect(process.env.mongourl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => {
     console.log("MongoDB connected");
-    app.listen(4000, () => console.log("Server running on port 4000"));
+    app.listen(port, () => console.log("Server running on port 4000"));
   })
   .catch(console.error);
